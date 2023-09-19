@@ -1,6 +1,7 @@
 # python3.6
 
 import random
+import json
 
 from paho.mqtt import client as mqtt_client
 
@@ -8,6 +9,7 @@ from paho.mqtt import client as mqtt_client
 broker = '10.1.70.4'
 port = 1883
 topic = "Wallduern/Hackathon/TC150T/DeviceProperties/Movement"
+# topic = "Wallduern/Hackathon/TC150T/DeviceProperties/TestOption"
 # Generate a Client ID with the subscribe prefix.
 client_id = f'subscribe-{random.randint(0, 100)}'
 # username = 'emqx'
@@ -30,8 +32,8 @@ def connect_mqtt() -> mqtt_client:
 
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
-        print(msg.payload.decode())
-
+        message = json.loads(msg.payload.decode())
+        print(message['Measured Cycle Time'])
     client.subscribe(topic)
     client.on_message = on_message
 
