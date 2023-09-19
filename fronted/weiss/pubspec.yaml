@@ -48,6 +48,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.9.2
+  liquid_pull_to_refresh: ^3.0.1
 
 flutter_icons:
   android: true
@@ -68,6 +69,7 @@ flutter:
   assets:
      - assets/logo_with_text.png
      - assets/logo.png
+     - assets/tc320t.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
