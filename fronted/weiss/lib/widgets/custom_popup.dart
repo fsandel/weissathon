@@ -11,7 +11,7 @@ class CustomPopup {
           content: Text(message),
           actions: <Widget>[
             TextButton(
-              child: Text('Schließen'),
+              child: const Text('Schließen'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

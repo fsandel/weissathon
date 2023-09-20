@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:weiss/main.dart';
-import 'package:weiss/screen/home_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -19,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: kToolbarHeight, // Set the toolbar height explicitly
       leading: showIcon
           ? IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const MyApp()),
@@ -38,13 +37,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               'assets/logo.png',
               height: 40,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             if (customTitle.isNotEmpty)
               Text(
                 customTitle,
-                style: TextStyle(color: Color.fromARGB(255, 49, 56, 59)),
+                style: const TextStyle(color: Color.fromARGB(255, 49, 56, 59)),
               ),
           ],
         ),
