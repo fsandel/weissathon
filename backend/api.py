@@ -1,15 +1,16 @@
 from flask import Flask
 import json
 from DatabaseQuery import query
+from CleanValues import createJson
 
 app = Flask(__name__)
 
-@app.route("/difference")
+@app.route("/errors")
 def difference():
     # query db
-    tables = query('CycleCount')
+    tables = query('RmsLastCycle')
     # find special cases
     # make them a JSON
-    data = json.dumps(tables['CycleCount'])
+    data = createJson(tables, ['RmsLastCycle'])
     # return the JSON
     return data
