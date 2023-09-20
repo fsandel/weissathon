@@ -3,7 +3,7 @@ import 'package:weiss/screen/machine_main_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MachineData extends StatefulWidget {
-  const MachineData({super.key});
+  const MachineData({Key? key}) : super(key: key);
 
   @override
   State<MachineData> createState() => _MachineDataState();
@@ -14,6 +14,7 @@ class _MachineDataState extends State<MachineData> {
       MediaQuery.of(context).size.height;
 
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,17 +26,28 @@ class _MachineDataState extends State<MachineData> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 102, 255, 102), // Set the background color
-          borderRadius: BorderRadius.circular(20.0), // Set the border radius
+          color: Colors.green,
+          borderRadius: BorderRadius.circular(20.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
         ),
         margin: EdgeInsets.all(20),
+        padding: EdgeInsets.all(16),
         width: deviceWidth(context) * 0.9,
-        height: 90,
+        height: 120,
         child: Row(
           children: [
             Container(
-                padding: EdgeInsets.all(4),
-                child: Image(image: AssetImage('assets/tc320t.png'))),
+              width: 120, // Increase the width for a larger image
+              child: Image.asset('assets/tc320t.png'),
+            ),
+            SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -43,26 +55,36 @@ class _MachineDataState extends State<MachineData> {
                 Text(
                   "TC514203",
                   style: GoogleFonts.lato(
-                      textStyle:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    textStyle: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                SizedBox(
-                  height: 8,
-                ),
+                SizedBox(height: 4),
                 Text(
                   "Status: Funktionsfähig",
                   style: GoogleFonts.lato(
-                      textStyle:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.w300)),
+                    textStyle: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Text(
                   "Standort: Halle B, OG",
                   style: GoogleFonts.lato(
-                      textStyle:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.w300)),
+                    textStyle: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
