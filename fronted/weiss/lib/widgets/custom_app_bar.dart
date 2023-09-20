@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:weiss/main.dart';
+import 'package:weiss/widgets/custom_popup.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    Key? key,
-    this.showIcon = true,
-    this.customTitle = "Dashboard",
-  }) : super(key: key);
+  const CustomAppBar(
+      {Key? key,
+      this.showIcon = true,
+      this.customTitle = "Dashboard",
+      this.popupmenu = false})
+      : super(key: key);
 
   final bool showIcon;
   final String customTitle;
+  final bool popupmenu;
 
   @override
   Widget build(BuildContext context) {
