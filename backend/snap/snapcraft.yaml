@@ -1,0 +1,17 @@
+name: backendweiss
+version: 1.0.0
+summary: Collects data from database and checks boundaries - prepares them for delivery
+description: The data from our InfluxDB gets read and interpreted by a python program. After calculating the necessary values and evaluating the data itself the results are sent to an API for further processing
+
+base: core22
+confinement: strict
+grade: stable
+
+apps:
+  backendweiss:
+    command: ../../run_server.sh
+
+parts:
+  backendweiss:
+    plugin: python
+    source: .
