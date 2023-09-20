@@ -15,16 +15,23 @@ def createJson() -> json:
                       timeframe='start: -30h')
   # return_json = json()
   return_json = {}
-  temperature = {}
   return_json['status'] = GREEN
+
+  temperature = {}
   return_json['temperature'] = temperature
-  return_json['temperature']['status'] = GREEN
   return_json['temperature']['name'] = 'temperature'
+  return_json['temperature']['description'] = 'this is the temperature of the machine'
+  return_json['temperature']['status'] = GREEN
   return_json['temperature']['time'] = all_entries[0]
   return_json['temperature']['value'] = all_entries[1]
-  return_json['temperature']['description'] = 'this is the temperature of the machine'
+
+  temperature2 = {}
+  return_json['temperature2'] = temperature2
+  return_json['temperature2']['name'] = 'temperature2'
+  return_json['temperature2']['description'] = 'this is the temperature of the machine'
+  return_json['temperature2']['status'] = GREEN
+  return_json['temperature2']['time'] = all_entries[0]
+  return_json['temperature2']['value'] = all_entries[1]
 
 
   return return_json
-
-print(json.dumps(createJson(), indent=2))
