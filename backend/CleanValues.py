@@ -22,6 +22,7 @@ def createJson() -> json:
   return_json['temperature']['name'] = 'temperature'
   return_json['temperature']['description'] = 'this is the temperature of the machine'
   return_json['temperature']['status'] = GREEN
+  return_json['temperature']['message'] = 'Everything is alright'
   return_json['temperature']['time'] = all_entries[0]
   return_json['temperature']['value'] = all_entries[1]
 
@@ -30,8 +31,8 @@ def createJson() -> json:
   return_json['temperature2']['name'] = 'temperature2'
   return_json['temperature2']['description'] = 'this is the temperature of the machine'
   return_json['temperature2']['status'] = GREEN
+  return_json['temperature2']['message'] = 'maybe wanna have a look into temperature2'
   return_json['temperature2']['time'] = all_entries[0]
   return_json['temperature2']['value'] = all_entries[1]
-
 
   return return_json
