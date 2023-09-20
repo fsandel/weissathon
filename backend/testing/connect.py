@@ -10,7 +10,7 @@ port = 1883
 topic = "Wallduern/Hackathon/TC150T/DeviceProperties/Movement"
 # topic = "Wallduern/Hackathon/TC150T/DeviceProperties/TestOption"
 # Generate a Client ID with the subscribe prefix.
-client_id = f'subscribe-{random.randint(0, 100)}'
+client_id = 'abc'
 # username = 'emqx'
 # password = 'public'
 
