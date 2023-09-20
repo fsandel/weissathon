@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:weiss/screen/home_screen.dart';
+import 'package:weiss/services/notification_service.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotification();
   runApp(const MyApp());
 }
 
@@ -15,8 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'WeissApp',
       theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 91, 91, 91))),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 91, 91, 91))),
       home: const HomeScreen(),
     );
   }

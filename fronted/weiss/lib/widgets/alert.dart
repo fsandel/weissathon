@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weiss/screen/machine_main_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weiss/services/notification_service.dart';
 import 'package:weiss/widgets/custom_popup.dart';
 
 class Alert extends StatefulWidget {
@@ -91,7 +92,8 @@ class _AlertState extends State<Alert> {
                     ),
                   ),
                   onPressed: () {
-                    CustomPopup.showPopup(context, "Hallo", "Welt");
+                    NotificationService()
+                        .showNotification(title: "Hello", body: "World");
                   },
                   child: const Text('Mehr Informationen'),
                 ),

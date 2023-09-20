@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weiss/screen/historical_data_collection.dart';
 import 'package:weiss/screen/historical_data_screen.dart';
 import 'package:weiss/screen/live_data_screen.dart';
 import 'package:weiss/widgets/custom_app_bar.dart';
-
-/// Flutter code sample for [NavigationBar].
-
-void main() => runApp(const MachineMainMenu());
 
 class MachineMainMenu extends StatelessWidget {
   const MachineMainMenu({super.key});
@@ -29,7 +26,9 @@ class _NavigationExampleState extends State<NavigationExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(customTitle: "Maschinename"),
+      appBar: CustomAppBar(
+        customTitle: "Maschinename", // Set popupmenu conditionally
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -51,7 +50,7 @@ class _NavigationExampleState extends State<NavigationExample> {
       ),
       body: <Widget>[
         const LiveDataScreen(),
-        const HistoricalDataScreen(),
+        const HistoricalDataCollection(),
       ][currentPageIndex],
     );
   }
