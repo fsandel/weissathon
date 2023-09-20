@@ -29,14 +29,14 @@ class _NavigationExampleState extends State<NavigationExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(customTitle: "Maschinename"),
+      appBar: const CustomAppBar(customTitle: "Maschinename"),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Color.fromARGB(255, 241, 229, 7),
+        indicatorColor: const Color.fromARGB(255, 241, 229, 7),
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
@@ -50,8 +50,8 @@ class _NavigationExampleState extends State<NavigationExample> {
         ],
       ),
       body: <Widget>[
-        LiveDataScreen(),
-        HistoricalDataScreen(),
+        const LiveDataScreen(),
+        const HistoricalDataScreen(),
       ][currentPageIndex],
     );
   }

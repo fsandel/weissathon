@@ -26,20 +26,20 @@ class _WarningState extends State<Warning> {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 110, 110),
+          color: const Color.fromARGB(255, 255, 110, 110),
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         width: deviceWidth(context) * 0.9,
         child: Column(
           children: [
@@ -48,14 +48,14 @@ class _WarningState extends State<Warning> {
                   CrossAxisAlignment.start, // Align text to the left
               children: [
                 Container(
-                  padding: EdgeInsets.all(4),
-                  child: Icon(
+                  padding: const EdgeInsets.all(4),
+                  child: const Icon(
                     Icons.warning,
                     color: Colors.white,
                     size: 50,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   // Allow the text to expand to the available width
                   child: Column(
@@ -64,18 +64,18 @@ class _WarningState extends State<Warning> {
                       Text(
                         "Warnung!",
                         style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 18,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         "Es wurden Unregelmäßigkeiten erkannt",
                         style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                           ),
@@ -87,14 +87,14 @@ class _WarningState extends State<Warning> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                     textStyle: MaterialStateProperty.all(
-                      TextStyle(
+                      const TextStyle(
                         fontSize: 14,
                         color: Colors.blue, // Change the link color as desired
                       ),
@@ -103,7 +103,7 @@ class _WarningState extends State<Warning> {
                   onPressed: () {
                     CustomPopup.showPopup(context, "Hallo", "Welt");
                   },
-                  child: Text('Mehr Informationen'),
+                  child: const Text('Mehr Informationen'),
                 ),
               ],
             )

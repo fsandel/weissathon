@@ -51,6 +51,7 @@ dev_dependencies:
   liquid_pull_to_refresh: ^3.0.1
   font_awesome_flutter: ^9.1.0
   syncfusion_flutter_charts: ^23.1.36
+  flutter_local_notifications: ^9.4.0
 
 flutter_icons:
   android: true

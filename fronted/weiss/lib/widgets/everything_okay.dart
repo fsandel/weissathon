@@ -23,20 +23,20 @@ class _EverythingOkayState extends State<EverythingOkay> {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 0, 127, 40),
+          color: const Color.fromARGB(255, 0, 127, 40),
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         width: deviceWidth(context) * 0.9,
         child: Column(
           children: [
@@ -44,15 +44,15 @@ class _EverythingOkayState extends State<EverythingOkay> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(4),
-                  child: Icon(
+                  padding: const EdgeInsets.all(4),
+                  child: const Icon(
                     Icons.check,
                     color: Colors.white,
                     size: 50,
                   ),
                 ),
-                SizedBox(width: 16),
-                Column(
+                const SizedBox(width: 16),
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(

@@ -35,14 +35,14 @@ class _HistoricalDataScreenState extends State<HistoricalDataScreen> {
   Widget build(BuildContext context) {
     return LiquidPullToRefresh(
       onRefresh: fetchData,
-      color: Color.fromARGB(255, 241, 229, 7),
+      color: const Color.fromARGB(255, 241, 229, 7),
       child: Column(
         children: [
           Container(
             width:
                 MediaQuery.of(context).size.width * 0.9, // 90% of screen width
-            margin: EdgeInsets.symmetric(vertical: 12),
-            padding: EdgeInsets.all(16),
+            margin: const EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 158, 212, 255),
               borderRadius: BorderRadius.circular(16),
@@ -56,7 +56,7 @@ class _HistoricalDataScreenState extends State<HistoricalDataScreen> {
                 firstPointColor: Colors.orange,
                 lastPointColor: Colors.orange,
                 width: 3,
-                marker: SparkChartMarker(
+                marker: const SparkChartMarker(
                   displayMode: SparkChartMarkerDisplayMode.all,
                 ),
               ),
@@ -66,7 +66,7 @@ class _HistoricalDataScreenState extends State<HistoricalDataScreen> {
             child: Container(
               color: Colors.white, // Set the background color for the list
               child: ListView.builder(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 itemCount: data.length, // Use the length of the fetched data
                 itemBuilder: (context, index) {
                   final double value = data[index];
@@ -74,14 +74,14 @@ class _HistoricalDataScreenState extends State<HistoricalDataScreen> {
                     color: index % 2 == 0
                         ? Colors.grey[100] // Set background color for even rows
                         : Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Row(
                       children: [
                         Text("${index + 1}:"),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
                           value.toString(), // Display the full number
-                          style: TextStyle(color: Colors.green),
+                          style: const TextStyle(color: Colors.green),
                         ),
                       ],
                     ),

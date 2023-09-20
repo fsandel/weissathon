@@ -33,21 +33,21 @@ class _MachineDataState extends State<MachineData> {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
-        margin: EdgeInsets.all(20),
-        padding: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(16),
         width: deviceWidth(context) * 0.9,
         height: 120,
         child: Row(
           children: [
-            Container(
+            SizedBox(
               width: 120, // Increase the width for a larger image
               child: Image.asset('assets/tc320t.png'),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,18 +55,18 @@ class _MachineDataState extends State<MachineData> {
                 Text(
                   "TC514203",
                   style: GoogleFonts.lato(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   "Status: Funktionsfähig",
                   style: GoogleFonts.lato(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
@@ -76,7 +76,7 @@ class _MachineDataState extends State<MachineData> {
                 Text(
                   "Standort: Halle B, OG",
                   style: GoogleFonts.lato(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,

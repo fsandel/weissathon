@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:weiss/screen/home_screen.dart';
-import 'package:weiss/theme/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'WeissApp',
       theme: ThemeData(
           colorScheme:
-              ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 91, 91, 91))),
+              ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 91, 91, 91))),
       home: const HomeScreen(),
     );
   }
