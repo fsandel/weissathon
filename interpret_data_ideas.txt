@@ -1,0 +1,14 @@
+Überlegungen zur Interpretation der Daten
+-	Ziel: für die potenziellen Verschleißteile eine aussagekräftige Kombination von Messwerten wählen, die über den Zustand des jeweiligen Bauteils Aussagekräftig sind
+Bolzen: Vibration x y z, Frequenz
+Nadellager: Vibration x y z, Frequenz (auch über die Zeit betrachtet, über die Lebensdauer des Lagers verändern sich Frequenz und Amplitude)
+Schmiermittel (Dichtung defekt, Schmiermittel nachfüllen): Temperatur, Stromstärke 
+(Gewicht/ Überlast): Temperatur, Strom, Differenz Werte inkl. Werkstück und ohne, eigener Sinnvoll Gewicht möglich und sinnvoll?!
+Werkstück korrekt fixiert? Vergleich Werte leerer Teller und inkl. Werkstück
+Teller Unwucht -> niedrigfrequente Schwingungen
+-	Generell: Ein Trend oder die Abweichungen vom Normwert muss immer in Abhängigkeit vom Zustand betrachtet werden, also beladen oder unbeladen. Durch die getrennte Betrachtung kann auch zwischen verschiedenen Ursachen für veränderte Messwerte unterschieden werden. Beispiel ist ein nicht korrekt fixiertes Werkstück. Ansonsten sind die Messwerte durch die unterschiedliche last zu verschieden als das man aus den Einzelwerten den Zustand des Prozesses bewerten könnte. Ggf. über die Zeit berechneten Durchschnitte, die einen guten Querschnitt benutzen, hernehmen – damit kann man das vllt ausgleichen
+-	Trends oder auch Abweichungen vom Standard können zum Beispiel unter den Gesichtspunkten von Qualitätsregelkarten (Six Sigma) betrachtet werden. Bei Abweichungen von mehr als zwei Sigma nach oben oder unten wird ein Warnsignal ausgelöst, bei Abweichungen von mehr als drei Sigma wird eine akute Handlungsempfehlung gegeben. Die Werte sollten dabei nicht individuell sondern auch über die Zeit oder nach Last/ unbelastet getrennt bewertet werden – sonst klappt das nicht. Ebenfalls Voraussetzung für die Anwendung ist, dass sich die Werte normalverteilt, verhalten. 
+-	Klappt Regelkarte nicht -> eigene Testreihen und entsprechende Grenzen festlegen – zu oft warten ist ja auch nicht sinnvoll
+-	Vergleich aufgrund des langsamen Voranschreitens (je nach Bauteil) ggf. zum ursprünglichen Objekt (also neu angeschafft). Bei Bauteilen wie zum Beispiel Lagern kann auch über die Art der Vibration auf den Lebensabschnitt des Bauteils geschlossen werden – da wäre kein Vergleich mit den ursprünglichen Daten notwendig
+-	Cave: wenn Geschwindigkeit der Scheibe geändert wird wirken auch andere Kräfte, das muss auch bei der Auswertung und dem Vergleich der Daten berücksichtigt werden: somit kann nicht einfach über die Zeitauswahl verglichen werden, die Umdrehung muss auch immer berücksichtigt werden 
+-	
