@@ -15,68 +15,60 @@ class _EverythingOkayState extends State<EverythingOkay> {
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const MachineMainMenu()),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 0, 127, 40),
-          borderRadius: BorderRadius.circular(20.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        margin: const EdgeInsets.all(20),
-        width: deviceWidth(context) * 0.9,
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(4),
-                  child: const Icon(
-                    Icons.check,
-                    color: Colors.white,
-                    size: 50,
-                  ),
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 0, 127, 40),
+        borderRadius: BorderRadius.circular(20.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      margin: const EdgeInsets.all(20),
+      width: deviceWidth(context) * 0.9,
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(4),
+                child: const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                  size: 50,
                 ),
-                const SizedBox(width: 16),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Alles in Ordnung",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+              ),
+              const SizedBox(width: 16),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Everything okay",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 4),
-                    Text(
-                      "Es wurden keine Fehler erkannt.",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "No errors were detected.",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
                     ),
-                  ],
-                )
-              ],
-            ),
-          ],
-        ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

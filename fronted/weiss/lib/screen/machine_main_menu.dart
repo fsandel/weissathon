@@ -27,7 +27,7 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        customTitle: "Maschinename", // Set popupmenu conditionally
+        customTitle: "TC514203", // Set popupmenu conditionally
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -44,7 +44,7 @@ class _NavigationExampleState extends State<NavigationExample> {
           ),
           NavigationDestination(
             icon: Icon(Icons.data_usage),
-            label: 'Daten',
+            label: 'Data',
           ),
         ],
       ),

@@ -64,7 +64,7 @@ class _MachineDataState extends State<MachineData> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "Status: Funktionsfähig",
+                  "Status: Okay",
                   style: GoogleFonts.lato(
                     textStyle: const TextStyle(
                       fontSize: 14,
@@ -74,7 +74,7 @@ class _MachineDataState extends State<MachineData> {
                   ),
                 ),
                 Text(
-                  "Standort: Halle B, OG",
+                  "Location: Hall B",
                   style: GoogleFonts.lato(
                     textStyle: const TextStyle(
                       fontSize: 14,

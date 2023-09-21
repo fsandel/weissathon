@@ -92,10 +92,10 @@ class _AlertState extends State<Alert> {
                     ),
                   ),
                   onPressed: () {
-                    NotificationService()
-                        .showNotification(title: "Hello", body: "World");
+                    CustomPopup.showPopup(
+                        context, "Attention", "Minor deviations were detected");
                   },
-                  child: const Text('Mehr Informationen'),
+                  child: const Text('More Information'),
                 ),
               ],
             )

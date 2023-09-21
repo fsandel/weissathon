@@ -7,7 +7,11 @@ import 'dart:async';
 
 final broker = '10.1.70.4';
 final port = 1883;
-final topic = 'Wallduern/Hackathon/TC150T/DeviceProperties/Movement';
+final topics = [
+  'Wallduern/Hackathon/TC150T/DeviceProperties/Movement',
+  'Wallduern/Hackathon/TC150T/DeviceProperties/Temperature_processed',
+  'Wallduern/Hackathon/TC150T/DeviceProperties/Vibration_processed',
+];
 
 MqttServerClient? client;
 
@@ -41,7 +45,9 @@ void connectMqtt() {
 
 void onConnected() {
   print('Connected to MQTT Broker!');
-  client?.subscribe(topic, MqttQos.atMostOnce);
+  for (String topic in topics) {
+    client?.subscribe(topic, MqttQos.atMostOnce);
+  }
 }
 
 void onDisconnected() {
@@ -65,12 +71,35 @@ void onMessage(String topic, MqttMessage message) {
   if (message is MqttPublishMessage) {
     final payload = utf8.decode(message.payload.message);
     final decodedMessage = json.decode(payload);
-    final measuredCycleTime = decodedMessage['Measured Cycle Time'] as double;
-    print('Received message on topic: $topic');
-    print('Measured Cycle Time: $measuredCycleTime');
 
-    // Push the measuredCycleTime to the stream
-    mqttStreamController.sink.add(measuredCycleTime.toString());
+    // Process the message based on the topic
+    switch (topic) {
+      case 'Wallduern/Hackathon/TC150T/DeviceProperties/Movement':
+        final measuredCycleTime =
+            decodedMessage['Measured Cycle Time'] as double;
+        print('Received message on topic: $topic');
+        print('Measured Cycle Time: $measuredCycleTime');
+        mqttStreamController.sink.add("cycle: " + measuredCycleTime.toString());
+        break;
+      case 'Wallduern/Hackathon/TC150T/DeviceProperties/Temperature_processed':
+        final measuredTemperature = decodedMessage['temperature'] as double;
+        print('Received message on topic: $topic');
+        print('Temperature: $measuredTemperature');
+        mqttStreamController.sink
+            .add("temperature: " + measuredTemperature.toString());
+        break;
+      case 'Wallduern/Hackathon/TC150T/DeviceProperties/Vibration_processed':
+        final measuredVibration = decodedMessage['adxlX']['Key Values']
+            ['peak_high_frequency'] as double;
+        print('Received message on topic: $topic');
+        print('Vibration Peak High Frequency: $measuredVibration');
+        mqttStreamController.sink
+            .add("frequency: " + measuredVibration.toString());
+        break;
+      default:
+        print('Unexpected topic: $topic');
+        break;
+    }
   }
 }
 
