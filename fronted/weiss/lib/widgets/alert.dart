@@ -53,7 +53,7 @@ class _AlertState extends State<Alert> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Hinweis!",
+                        "Attention!",
                         style: GoogleFonts.openSans(
                           textStyle: const TextStyle(
                             fontSize: 16,
@@ -64,7 +64,7 @@ class _AlertState extends State<Alert> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        "Es wurden geringe Unregelmäßigkeiten erkannt!",
+                        "Inconsistencies were detected.",
                         style: GoogleFonts.openSans(
                           textStyle: const TextStyle(
                             fontSize: 14,

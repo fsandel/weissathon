@@ -40,7 +40,7 @@ class _HistoricalDataScreenState extends State<HistoricalDataScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        customTitle: "Maschinename",
+        customTitle: "TC514203",
       ),
       body: LiquidPullToRefresh(
         onRefresh: fetchData,

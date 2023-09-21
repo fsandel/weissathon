@@ -45,8 +45,7 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
                   (newMeasuredCycleTime - previousMeasuredCycleTime!) /
                       previousMeasuredCycleTime! *
                       100;
-              if ((percentChange >= 10.0 || percentChange <= -10.0) &&
-                  previousMeasuredCycleTime != 0) {
+              if (percentChange >= 10.0 || percentChange <= -10.0) {
                 // Show notification
                 NotificationService().showNotification(
                     title: "Measured Cycle Time Change Alert",
