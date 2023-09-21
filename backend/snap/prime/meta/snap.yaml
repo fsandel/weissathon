@@ -1,0 +1,15 @@
+name: backendweiss
+version: 1.0.0
+summary: Collects data from database and checks boundaries - prepares them for delivery
+description: The data from our InfluxDB gets read and interpreted by a python program. After calculating the necessary values and evaluating the data itself the results are sent to an API for further processing
+architectures:
+- amd64
+base: core22
+apps:
+  backendweiss:
+    command: ../../run_server.sh
+confinement: strict
+grade: stable
+environment:
+  LD_LIBRARY_PATH: ${SNAP_LIBRARY_PATH}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}:$SNAP/lib
+  PATH: $SNAP/usr/sbin:$SNAP/usr/bin:$SNAP/sbin:$SNAP/bin:$PATH
