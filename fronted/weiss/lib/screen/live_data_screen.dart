@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:weiss/api/mqtt_client.dart';
 import 'package:weiss/services/notification_service.dart';
 import 'package:weiss/widgets/alert.dart';
-import 'package:weiss/widgets/warning.dart';
 import 'package:weiss/widgets/everything_okay.dart';
 
 class LiveDataScreen extends StatefulWidget {
@@ -21,16 +20,23 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
   Color textColorTemp = Colors.green; // Default text color for temperature
   Color textColorVibration = Colors.green; // Default text color for vibration
 
-  double previousMeasuredCycleTime = 0.0;
+  double previousMeasuredCycleTime = 0.58;
   double previousMeasuredTemperature = 42.0; // Set an initial value
   double previousMeasuredVibration = 10.0; // Set an initial value
 
   bool isLoading = true; // Initially, set loading to true
   bool showPopup = false; // Tracks whether to show the Alert() widget
+  bool loadindSecondTime = false;
 
   @override
   void initState() {
     super.initState();
+    if (!loadindSecondTime) {
+      loadindSecondTime = true;
+    } else {
+      onDisconnected();
+    }
+
     connectMqtt();
     subscribe();
     mqttStreamController.stream.listen((data) {
@@ -40,16 +46,16 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
         if (newMeasuredCycleTime != null) {
           setState(() {
             if (previousMeasuredCycleTime != null) {
-              // Check if it's 5% higher or lower
+              // Check if it's 50% higher or lower
               final percentChange =
                   (newMeasuredCycleTime - previousMeasuredCycleTime!) /
                       previousMeasuredCycleTime! *
                       100;
-              if (percentChange >= 10.0 || percentChange <= -10.0) {
+              if (percentChange > 50.0 || percentChange < -50.0) {
                 // Show notification
                 NotificationService().showNotification(
                     title: "Measured Cycle Time Change Alert",
-                    body: "Measured cycle time has changed by more than 10%.");
+                    body: "Measured cycle time has changed by more than 50%.");
                 // Set showPopup to true to display Alert()
                 setState(() {
                   showPopup = true;
@@ -142,7 +148,6 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
 
   @override
   void dispose() {
-    mqttStreamController.close();
     super.dispose();
   }
 
@@ -186,9 +191,10 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
                             stream: mqttStreamController.stream,
                             builder: (context, snapshot) {
                               return Text(
-                                '$measuredCycleTime'
-                                    .split(" ")[1]
-                                    .substring(0, 10),
+                                (measuredCycleTime
+                                        ?.split(" ")[1]
+                                        ?.substring(0, 10) ??
+                                    'N/A'),
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: textColor,
@@ -215,9 +221,10 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
                             stream: mqttStreamController.stream,
                             builder: (context, snapshot) {
                               return Text(
-                                '$measuredTemperature'
-                                    .split(" ")[1]
-                                    .substring(0, 10),
+                                (measuredTemperature
+                                        ?.split(" ")[1]
+                                        ?.substring(0, 10) ??
+                                    'N/A'),
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: textColorTemp, // Use textColorTemp
@@ -243,9 +250,10 @@ class _LiveDataScreenState extends State<LiveDataScreen> {
                             stream: mqttStreamController.stream,
                             builder: (context, snapshot) {
                               return Text(
-                                '$measuredVibration'
-                                    .split(" ")[1]
-                                    .substring(0, 10),
+                                (measuredVibration
+                                        ?.split(" ")[1]
+                                        ?.substring(0, 10) ??
+                                    'N/A'),
                                 style: TextStyle(
                                   fontSize: 16,
                                   color:
